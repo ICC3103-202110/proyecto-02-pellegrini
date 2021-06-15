@@ -25,3 +25,45 @@ function createTable(model){
     ]
 
 }
+
+function mainInput(model){
+    const message = 'Select action'
+    return inquirer.prompt([
+        {
+            name: 'Main',
+            type: 'list',
+            message: message,
+            choices: ['Add City','Update City','Delete City'],
+
+        }
+    ])
+}
+
+function addCity(model){
+    const message0 = 'Enter location'
+    return inquirer.prompt([
+        {
+            name: 'addcity',
+            type: 'input',
+            message: message0,
+            default: model.city
+
+        }
+    ])
+}
+
+function updateCity(model){
+    const message1 = 'Location?'
+    return inquirer.prompt([
+        {
+            name: 'updateCity',
+            type: 'input',
+            message: message1,
+
+        }
+    ])
+}
+
+function deleteCity(model){
+    const message2 = ''
+}
