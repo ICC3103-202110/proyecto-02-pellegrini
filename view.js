@@ -2,7 +2,7 @@ const figlet = require('figlet')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
 
-function getTitle(){
+function createTitle(){
     return chalk.yellow(
         figlet.textSync(
             'Weather app',
@@ -14,4 +14,14 @@ function getTitle(){
     )
 }
 
-console.log(getTitle())
+function createTable(model){
+    const {city} = model
+    const {temp} = model
+    const {max} = model
+    const {min} = model
+    return [
+        { 'City': city, 'Temp': temp, 
+        'Max': max, 'Min':min}
+    ]
+
+}
