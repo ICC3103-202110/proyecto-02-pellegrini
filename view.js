@@ -19,8 +19,8 @@ function createTitle(){
 
 function createTable(model){
     const lista = []
-    var numero = Number(model.names.lenght)
-    for (var i = 0; i<num;i++){
+    if (model.lenght>=0){
+        for (var i=1; i<model.length;i++){
         const {city} = model
         const {temp} = model
         const {max} = model
@@ -28,6 +28,7 @@ function createTable(model){
         lista.push({ 'City': city, 'Temp': temp, 
         'Max': max, 'Min':min})
         return lista 
+        }
     }
 
 }
@@ -84,7 +85,7 @@ function deleteCity(model){
 function view(model){
     return {
         title: createTitle(),
-        table: createTable(model.cities)
+        table: createTable(model)
     }
 }
 
