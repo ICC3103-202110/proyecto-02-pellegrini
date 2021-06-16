@@ -1,6 +1,8 @@
 const figlet = require('figlet')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
+const prompt = require('prompt-sync')
+const {printTable} = require('console-table-printer')
 
 function createTitle(){
     return chalk.yellow(
@@ -13,16 +15,32 @@ function createTitle(){
         )
     )
 }
+const values_1 = []
+var cantidad = model[0].cant
+
+for (var i = 0;i<cantidad;i++){
+    var name = model[i].name
+    var temp = model[i].temp
+    var min = model[i].min
+    var max = model[i].max
+    var list_1 = {'name': name, 'temp': temp, 'min': min, 'max': max}
+    values_1.push(list_1)
+}
+return values_1
+}
 
 function createTable(model){
-    const {city} = model
-    const {temp} = model
-    const {max} = model
-    const {min} = model
-    return [
-        { 'City': city, 'Temp': temp, 
-        'Max': max, 'Min':min}
-    ]
+    const lista = []
+    var numero = model[0].cant
+    for (var i = 0; i<cantidad;i++){
+        const {city} = model
+        const {temp} = model
+        const {max} = model
+        const {min} = model
+        lista.push({ 'City': city, 'Temp': temp, 
+        'Max': max, 'Min':min})
+        return lista 
+    }
 
 }
 
@@ -43,10 +61,9 @@ function addCity(model){
     const message0 = 'Enter location'
     return inquirer.prompt([
         {
-            name: 'addcity',
+            name: 'addCity',
             type: 'input',
             message: message0,
-            default: model.city
 
         }
     ])
@@ -65,5 +82,28 @@ function updateCity(model){
 }
 
 function deleteCity(model){
-    const message2 = ''
+    const message2 = 'which city do you want to delete?'
+    return inquirer.prompt([
+        {
+            name: 'deleteCity',
+            type: 'input',
+            message: message,
+
+        }
+    ])
+}
+
+function view(model){
+    return {
+        title: createTitle(),
+        table: createTable(model)
+    }
+}
+
+module.exports = {
+    view, 
+    mainInput,
+    addCity,
+    updateCity,
+    deleteCity
 }
