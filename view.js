@@ -15,24 +15,12 @@ function createTitle(){
         )
     )
 }
-const values_1 = []
-var cantidad = model[0].cant
 
-for (var i = 0;i<cantidad;i++){
-    var name = model[i].name
-    var temp = model[i].temp
-    var min = model[i].min
-    var max = model[i].max
-    var list_1 = {'name': name, 'temp': temp, 'min': min, 'max': max}
-    values_1.push(list_1)
-}
-return values_1
-}
 
 function createTable(model){
     const lista = []
-    var numero = model[0].cant
-    for (var i = 0; i<cantidad;i++){
+    var numero = model[0].num
+    for (var i = 0; i<num;i++){
         const {city} = model
         const {temp} = model
         const {max} = model
@@ -96,7 +84,7 @@ function deleteCity(model){
 function view(model){
     return {
         title: createTitle(),
-        table: createTable(model)
+        table: createTable(model.cities)
     }
 }
 

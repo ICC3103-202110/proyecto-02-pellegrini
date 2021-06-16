@@ -1,11 +1,13 @@
 initModel = {
-    city : [] ,
-    temp : [] ,
-    max : [] ,
-    min : [],
+    names = [],
+    cities = [{
+    city : 'name' ,
+    temp :  'temp',
+    max :  'max',
+    min : 'min',
     num : 1
+}]
 }
-
-module.exports = {
+export default {
     initModel
 }
