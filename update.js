@@ -23,14 +23,14 @@ function deleteCityUpdate(model){
     return temporalModel;
 }
 
-function update (input,model){
-    if (mainInput.choices === 'Add City'){
+function update (action,model){
+    if (action === 'Add City'){
         return addCityUpdate
     }
-    if (mainInput.choices === 'Update City'){
+    if (action === 'Update City'){
         return updateCityUpdate //DEFINIR ESTA FUNCION
     }
-    if (mainInput.choices === 'Delete City'){
+    if (action === 'Delete City'){
         return deleteCityUpdate // DEFINIR ESTA FUNCION 
     }    
 

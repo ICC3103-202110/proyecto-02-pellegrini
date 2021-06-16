@@ -22,5 +22,3 @@ async function app(state,update,view){
                         }
                     }
         }
-
-    

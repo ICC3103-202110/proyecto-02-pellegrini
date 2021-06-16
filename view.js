@@ -19,7 +19,7 @@ function createTitle(){
 
 function createTable(model){
     const lista = []
-    var numero = model[0].num
+    var numero = Number(model.names.lenght)
     for (var i = 0; i<num;i++){
         const {city} = model
         const {temp} = model

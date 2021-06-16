@@ -8,6 +8,6 @@ initModel = {
     num : 1
 }]
 }
-export default {
+module.exports = {
     initModel
 }
