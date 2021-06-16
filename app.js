@@ -14,11 +14,12 @@ async function app(state,update,view){
         console.clear()
         console.log(title)
         printTable(table)
-
-                    state = {
-                        ...state,
-                        model: updatedModel,
-                        currentView: view(updatedModel)    
-                        }
-                    }
+        const action = await mainInput
+        const updated = update(action,model)
+        state = {
+            ...state,
+            model: updated,
+            currentView: view(updatedModel)    
+            }
         }
+    }

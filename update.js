@@ -24,13 +24,13 @@ function deleteCityUpdate(model){
 }
 
 function update (action,model){
-    if (action === 'Add City'){
+    if (action.Main === 'Add City'){
         return addCityUpdate
     }
-    if (action === 'Update City'){
+    if (action.Main === 'Update City'){
         return updateCityUpdate //DEFINIR ESTA FUNCION
     }
-    if (action === 'Delete City'){
+    if (action.Main === 'Delete City'){
         return deleteCityUpdate // DEFINIR ESTA FUNCION 
     }    
 

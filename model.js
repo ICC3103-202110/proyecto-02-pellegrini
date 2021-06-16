@@ -5,7 +5,6 @@ initModel = {
     temp :  'temp',
     max :  'max',
     min : 'min',
-    num : 1
 }]
 }
 module.exports = {
