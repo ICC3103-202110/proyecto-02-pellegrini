@@ -1,6 +1,6 @@
 initModel = {
-    names = [],
-    cities = [{
+    names: [],
+    cities: [{
     city : 'name' ,
     temp :  'temp',
     max :  'max',
