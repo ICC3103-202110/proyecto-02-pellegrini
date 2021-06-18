@@ -1,5 +1,19 @@
 const { mainInput, addCity, updateCity, deleteCity } = require("./view");
 
+function addingCity(names,city){
+    newNames = names.push(city)
+    return newNames
+}
+
+function info(location, temp1, max1, min1){
+    row = {'name': location,'temp': temp1, 'max': max1, 'min': min1}
+    return row
+}
+function addInfo(cities,row){
+    a = cities
+    addedInfo = a.push(row)
+    return addedInfo 
+}
 
 function update (action,selection,model){
     // sumando una ciudad con numeros aleatorios 
