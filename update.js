@@ -1,17 +1,19 @@
 
 const {axios} = require('axios')
 
+function connectApi(selected,Key){
+    api = axios.get('http://api.openweathermap.org/data/2.5/weather?q='+selected+'&appid='+Key+'&units=metric')
+    return api
+}
+
 function addingName(names,city){
     newNames = names.push(city)
     return newNames
 }
 
-function createRow(location, temp1, max1, min1){
-    row = {'name': location,'temp': temp1, 'max': max1, 'min': min1}
-    return row
-}
-function addInfo(cities,row){
-    a = cities
+function addInfo(info,selected, temp1, max1, min1){
+    a = info
+    row = {'name': selected,'temp': temp1, 'max': max1, 'min': min1}
     addedInfo = a.push(row)
     return addedInfo 
 }
@@ -20,6 +22,6 @@ function addInfo(cities,row){
 
 module.exports = {
     addingName,
-    createRow,
-    addInfo
+    addInfo,
+    connectApi
  }

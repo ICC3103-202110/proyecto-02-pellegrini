@@ -2,7 +2,7 @@ const figlet = require('figlet')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
 const prompt = require('prompt-sync')
-const {printTable} = require('console-table-printer')
+//const {printTable} = require('console-table-printer')
 
 function createTitle(){
     return chalk.yellow(
@@ -17,8 +17,13 @@ function createTitle(){
 }
 
 function createTable(info){
-    var lista = info
-    return printTable(lista)
+    const {location,temp, max, min } = info
+    return [{
+        "City": location,
+        "Temp" : temp,
+        "Max": max,
+        "Min": min
+    }]
     }
 
 
@@ -48,7 +53,7 @@ function addCity(model){
 }
 
 function updateCity(model,names){
-    const message1 = 'Location?'
+    const message1 = 'Select city to update'
     return inquirer.prompt([
         {
             name: 'updateCity',
