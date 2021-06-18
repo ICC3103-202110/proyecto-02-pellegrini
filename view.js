@@ -17,9 +17,9 @@ function createTitle(){
 }
 
 
-function createTable(model){
-    var lista = model.info
-    return lista
+function createTable(info){
+    var lista = info
+    return printTable(lista)
     }
 
 

@@ -4,7 +4,7 @@ const{view} = require('./view')
 const{app} = require('./app')
 
 const state = {
-    model: initModel,
+    model : initModel,
     currentView: view(initModel)
 }
 
