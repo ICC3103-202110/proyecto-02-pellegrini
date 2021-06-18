@@ -12,10 +12,11 @@ async function app(names,info,view){
         printTable(table)
         const action = await mainInput
         const chosen = action.Main
+
         if (chosen === 'addCity'){
             selection = await addCity
             selected = selection.addCity
-            const newNamesList = addingName(names,selected)
+            const updatedNames = addingName(names,selected)
             conInfo = connectApi(selected,'6fa5c94be7a25d05a112fea1ae1bae13')
             x = await conInfo.then((response) => {
                 temp1 = response.data.main.temp
@@ -32,7 +33,7 @@ async function app(names,info,view){
             }
 
 
-            return updatedModel, newNamesList;
+            return updatedModel, updatedNames;
             
         }
             
