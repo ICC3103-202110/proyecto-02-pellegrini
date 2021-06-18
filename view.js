@@ -21,10 +21,10 @@ function createTable(model){
     const lista = []
     if (model.lenght>=0){
         for (var i=1; i<model.length;i++){
-        const {city} = model
-        const {temp} = model
-        const {max} = model
-        const {min} = model
+        var {city} = model[i].city
+        var {temp} = model[i].temp
+        var {max} = model[i].max
+        var {min} = model[i].min
         lista.push({ 'City': city, 'Temp': temp, 
         'Max': max, 'Min':min})
         return lista 
