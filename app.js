@@ -1,16 +1,19 @@
-const {update} = require('./update')
-const {view} = require('./view')
-const {model} = require('./model')
-const prompt = require('prompt-sync')
+const {addInfo,createRow,addingName} = require('./update')
 const {mainInput, updateCity, addCity, deleteCity} = require('./view')
 const {printTable} = require('console-table-printer')
+const {initModel} = require('./model')
+const {view} = require('./view')
 
-async function app(state,update,view){
+function connectApi(selected,Key){
+    api = axios.get('http://api.openweathermap.org/data/2.5/weather?q='+selected+'&appid='+Key+'&units=metric')
+    return api
+}
+let names = initModel.names 
+let info = initModel.info
+async function app(names,info,view){
     while(true){
-        const {model,currentView} = state
-        const {title, table} = currentView
-        let names = state.model.names 
-        let info = state.model.info
+        const {table} = view(info)
+        const {title} = view(info)
         console.clear()
         console.log(title)
         printTable(table)
@@ -45,7 +48,8 @@ async function app(state,update,view){
             }
 
 
-            return updatedModel, newNamesList
+            return updatedModel, newNamesList;
+            app(updatedModel,newNamesList)
         }
         else if (chosen === 'updateCity'){
             selection = await deleteCity
@@ -89,10 +93,7 @@ async function app(state,update,view){
             updatedNames.splice(index,1)
             return updatedModel, updatedNames
         }
-        }
-
     }
 }
-module.exports = {
-    app
-}
+
+app(names,info,view)

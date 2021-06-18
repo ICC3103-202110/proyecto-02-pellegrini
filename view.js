@@ -16,7 +16,6 @@ function createTitle(){
     )
 }
 
-
 function createTable(info){
     var lista = info
     return printTable(lista)
