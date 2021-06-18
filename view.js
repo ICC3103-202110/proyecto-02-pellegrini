@@ -18,7 +18,7 @@ function createTitle(){
 
 
 function createTable(model){
-    var lista = model.cities
+    var lista = model.info
     return lista
     }
 
