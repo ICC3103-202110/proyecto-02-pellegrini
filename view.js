@@ -2,7 +2,7 @@ const figlet = require('figlet')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
 const prompt = require('prompt-sync')
-//const {printTable} = require('console-table-printer')
+const {printTable} = require('console-table-printer')
 
 function createTitle(){
     return chalk.yellow(
@@ -27,7 +27,7 @@ function createTable(info){
     }
 
 
-function mainInput(model){
+function mainInput(){
     const message = 'Select action'
     return inquirer.prompt([
         {
@@ -40,7 +40,7 @@ function mainInput(model){
     ])
 }
 
-function addCity(model){
+function addCity(){
     const message0 = 'Enter location'
     return inquirer.prompt([
         {
@@ -52,7 +52,7 @@ function addCity(model){
     ])
 }
 
-function updateCity(model,names){
+function updateCity(names){
     const message1 = 'Select city to update'
     return inquirer.prompt([
         {
@@ -65,7 +65,7 @@ function updateCity(model,names){
     ])
 }
 
-function deleteCity(model,names){
+function deleteCity(names){
     const message2 = 'which city do you want to delete?'
     return inquirer.prompt([
         {
@@ -78,10 +78,10 @@ function deleteCity(model,names){
     ])
 }
 
-function view(model){
+function view(info){
     return {
         title: createTitle(),
-        table: createTable(model)
+        table: createTable(info)
     }
 }
 
