@@ -18,20 +18,10 @@ function createTitle(){
 
 
 function createTable(model){
-    const lista = []
-    if (model.lenght>=0){
-        for (var i=1; i<model.length;i++){
-        var {city} = model[i].city
-        var {temp} = model[i].temp
-        var {max} = model[i].max
-        var {min} = model[i].min
-        lista.push({ 'City': city, 'Temp': temp, 
-        'Max': max, 'Min':min})
-        return lista 
-        }
+    var lista = model.cities
+    return lista
     }
 
-}
 
 function mainInput(model){
     const message = 'Select action'
@@ -58,25 +48,27 @@ function addCity(model){
     ])
 }
 
-function updateCity(model){
+function updateCity(model,names){
     const message1 = 'Location?'
     return inquirer.prompt([
         {
             name: 'updateCity',
-            type: 'input',
+            type: 'list',
             message: message1,
+            choices : names
 
         }
     ])
 }
 
-function deleteCity(model){
+function deleteCity(model,names){
     const message2 = 'which city do you want to delete?'
     return inquirer.prompt([
         {
             name: 'deleteCity',
-            type: 'input',
-            message: message,
+            type: 'list',
+            message: message2,
+            choices : names
 
         }
     ])
