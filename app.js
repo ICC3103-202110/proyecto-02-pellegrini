@@ -11,23 +11,26 @@ async function app(info,names,view){
         console.clear()
         const {title,table} = view(info)
         console.log(title)
-        printTable(table)
-        const action = await mainInput
-        const chosen = action.Main
-        if (chosen === 'addCity'){
-            selection = await addCity
+        num = names.lenght 
+        if (num >0){
+            printTable(table)
+        }
+        choice = await mainInput()
+        const chosen = choice.Main 
+        if (chosen === 'add City'){
+            selection = await addCity()
             selected = selection.addCity
             addingCity(names,selected)
         }
            
-        else if (chosen === 'updateCity'){
-            selection = await updateCity
+        else if (chosen === 'update City'){
+            selection = await updateCity(names)
             selected = selection.deleteCity
             updatedInfo = updatingCity(info,names,selected)
             app(updatedInfo,names,view)
         }
-        else if (chosen === 'deleteCity'){
-            selection = await deleteCity
+        else if (chosen === 'delete City'){
+            selection = await deleteCity(names)
             selected = selection.updateCity
             const updatedInfo= info; 
             const updatedNames = names; 
