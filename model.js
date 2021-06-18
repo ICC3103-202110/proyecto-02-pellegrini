@@ -1,9 +1,7 @@
-initModel = [{
-    city : 'name' ,
-    temp :  'temp',
-    max :  'max',
-    min : 'min',
-}]
+initModel = {
+    cities : [],
+    names : []
+}
 
 module.exports = {
     initModel
